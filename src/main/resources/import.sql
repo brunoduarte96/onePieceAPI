@@ -1,2 +1,3 @@
-INSERT INTO Piratas (nome, estilo_de_luta, tripulação, recompensa, Akuma_no_mi, haki)VALUES('Monkey D. Luffy', 'Gomu Gomu no Mi', 'Piratas do Chapéu de Palha', 1500000000, 'Gomu Gomu no Mi', 'Observação, Armamento'),('Roronoa Zoro', 'Santoryu', 'Piratas do Chapéu de Palha', 320000000, NULL, 'Observação, Armamento');
+INSERT INTO Tripulacao(capitao,navio,nome) VALUES ('Monkey D. Luffy','Thousand Sunny','"Piratas do Chapéu de Palha')
+INSERT INTO Piratas (nome, estilo_de_luta, tripulacao_id, recompensa, Akuma_no_mi, haki)VALUES ('Monkey D. Luffy', 'Gomu Gomu no Mi', 1, 1500000000, 'Gomu Gomu no Mi', 'Observação, Armamento'),('Roronoa Zoro', 'Santoryu', 1, 320000000, NULL, 'Observação, Armamento');
 INSERT INTO Marinha (nome, estilo_de_luta, hierarquia, Akuma_no_mi, haki)VALUES('Sakazuki', 'Magu Magu no Mi', 'Almirante da Frota', 'Magu Magu no Mi', 'Armamento'),('Borsalino', 'Pika Pika no Mi', 'Almirante da Frota', 'Pika Pika no Mi', 'Observação, Armamento');
