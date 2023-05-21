@@ -6,27 +6,33 @@ import java.math.BigDecimal;
 
 @Entity
 @Table(name = "Piratas")
+public class Pirata {
 
-public class Pirata  {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name = "nome")
     private String nome;
+
     @Column(name = "estilo_de_luta")
     private String estiloLuta;
 
-    @Column(name = "tripulação")
-    private String tripulacao;
+    @ManyToOne
+    @JoinColumn(name = "tripulacao_id")
+    private Tripulacao tripulacao;
+
     private BigDecimal recompensa;
+
     @Column(name = "Akuma_no_mi")
     private String akumaNoMi;
-    private String haki;
 
+    private String haki;
 
     public Pirata() {
     }
 
-    public Pirata(Long id, String nome, String estiloLuta, String tripulacao, BigDecimal recompensa, String akumaNoMi, String haki) {
+    public Pirata(Long id, String nome, String estiloLuta, Tripulacao tripulacao, BigDecimal recompensa, String akumaNoMi, String haki) {
         this.id = id;
         this.nome = nome;
         this.estiloLuta = estiloLuta;
@@ -60,11 +66,11 @@ public class Pirata  {
         this.estiloLuta = estiloLuta;
     }
 
-    public String getTripulacao() {
+    public Tripulacao getTripulacao() {
         return tripulacao;
     }
 
-    public void setTripulacao(String tripulacao) {
+    public void setTripulacao(Tripulacao tripulacao) {
         this.tripulacao = tripulacao;
     }
 

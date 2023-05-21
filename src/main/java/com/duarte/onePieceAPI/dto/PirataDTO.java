@@ -12,16 +12,17 @@ public class PirataDTO {
     private String estiloLuta;
     private String tripulacao;
     private BigDecimal recompensa;
-
     private String akumaNoMi;
     private String haki;
 
-    public PirataDTO(){
-
+    public PirataDTO() {
     }
 
-    public PirataDTO(Pirata pirata){
-        BeanUtils.copyProperties(pirata,this);
+    public PirataDTO(Pirata pirata) {
+        BeanUtils.copyProperties(pirata, this);
+        if (pirata.getTripulacao() != null) {
+            this.tripulacao = pirata.getTripulacao().getNome();
+        }
     }
 
     public Long getId() {
@@ -80,5 +81,3 @@ public class PirataDTO {
         this.haki = haki;
     }
 }
-
-
