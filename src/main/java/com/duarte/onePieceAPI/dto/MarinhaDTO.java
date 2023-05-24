@@ -3,6 +3,8 @@ package com.duarte.onePieceAPI.dto;
 import com.duarte.onePieceAPI.entities.Marinha;
 import org.springframework.beans.BeanUtils;
 
+import java.util.List;
+
 public class MarinhaDTO {
 
     private Long id;
@@ -10,7 +12,9 @@ public class MarinhaDTO {
     private String estiloLuta;
     private String hierarquia;
     private String akumaNoMi;
+    private List<String> tipoAkumaNoMi;
     private String haki;
+    private String imgUrl;
 
     public MarinhaDTO() {
 
@@ -18,6 +22,10 @@ public class MarinhaDTO {
 
     public MarinhaDTO(Marinha marinha) {
         BeanUtils.copyProperties(marinha, this);
+        if(marinha.getAkumaNoMi()!=null){
+            this.akumaNoMi = marinha.getAkumaNoMi().getNome();
+            this.tipoAkumaNoMi = marinha.getAkumaNoMi().getTipo();
+        }
     }
 
     public Long getId() {
@@ -66,5 +74,21 @@ public class MarinhaDTO {
 
     public void setHaki(String haki) {
         this.haki = haki;
+    }
+
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
+    }
+
+    public List<String> getTipoAkumaNoMi() {
+        return tipoAkumaNoMi;
+    }
+
+    public void setTipoAkumaNoMi(List<String> tipoAkumaNoMi) {
+        this.tipoAkumaNoMi = tipoAkumaNoMi;
     }
 }

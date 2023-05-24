@@ -1,3 +1,5 @@
-INSERT INTO Tripulacao(capitao,navio,nome) VALUES ('Monkey D. Luffy','Thousand Sunny','"Piratas do Chapéu de Palha')
-INSERT INTO Piratas (nome, estilo_de_luta, tripulacao_id, recompensa, Akuma_no_mi, haki)VALUES ('Monkey D. Luffy', 'Gomu Gomu no Mi', 1, 1500000000, 'Gomu Gomu no Mi', 'Observação, Armamento'),('Roronoa Zoro', 'Santoryu', 1, 320000000, NULL, 'Observação, Armamento');
-INSERT INTO Marinha (nome, estilo_de_luta, hierarquia, Akuma_no_mi, haki)VALUES('Sakazuki', 'Magu Magu no Mi', 'Almirante da Frota', 'Magu Magu no Mi', 'Armamento'),('Borsalino', 'Pika Pika no Mi', 'Almirante da Frota', 'Pika Pika no Mi', 'Observação, Armamento');
+INSERT INTO tripulacao (capitao, img_url, navio, nome)VALUES('Monkey D. Luffy', 'https://exemplo.com/img/9', 'Thousand Sunny', 'Piratas do Chapéu de Palha');
+INSERT INTO akuma_no_mi (img_url, nome) VALUES  ('https://exemplo.com/img/1', 'Gomu Gomu no Mi'),('https://exemplo.com/img/2', 'Magu Magu no Mi'),('https://exemplo.com/img/3', 'Hie Hie no Mi'),('https://exemplo.com/img/4', 'Yami Yami no Mi');
+INSERT INTO akuma_no_mi_tipo (akuma_no_mi_id, tipo) VALUES(1, 'Paramecia'),(2, 'Logia'),(3, 'Logia'),(4, 'Paramecia');
+INSERT INTO marinha (akuma_no_mi_id, estilo_de_luta, haki, hierarquia, img_url, nome) VALUES(2, 'Rokushiki', 'Observação, Armamento', 'Almirante da Frota', 'https://exemplo.com/img/5', 'Sakazuki'),(3, 'Rokushiki', 'Observação', 'Almirante', 'https://exemplo.com/img/6', 'Kuzan');
+INSERT INTO piratas (recompensa, akuma_no_mi_id, tripulacao_id, estilo_de_luta, haki, img_url, nome) VALUES(1500000000, 1, 1, 'Gomu Gomu no Mi', 'Observação, Armamento', 'https://exemplo.com/img/7', 'Monkey D. Luffy'),(320000000, NULL, 1, 'Santoryu', 'Observação, Armamento', 'https://exemplo.com/img/8', 'Roronoa Zoro');

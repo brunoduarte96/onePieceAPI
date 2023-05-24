@@ -13,21 +13,24 @@ public class Marinha  {
     private String estiloLuta;
 
     private String hierarquia;
-    @Column(name = "Akuma_no_mi")
-    private String akumaNoMi;
+    @ManyToOne
+    private AkumaNoMi akumaNoMi;
 
     private String haki;
+
+    private String imgUrl;
 
     public Marinha() {
     }
 
-    public Marinha(Long id, String nome, String estiloLuta, String hierarquia, String akumaNoMi, String haki) {
+    public Marinha(Long id, String nome, String estiloLuta, String hierarquia, AkumaNoMi akumaNoMi, String haki, String imgUrl) {
         this.id = id;
         this.nome = nome;
         this.estiloLuta = estiloLuta;
         this.hierarquia = hierarquia;
         this.akumaNoMi = akumaNoMi;
         this.haki = haki;
+        this.imgUrl = imgUrl;
     }
 
     public Long getId() {
@@ -62,11 +65,11 @@ public class Marinha  {
         this.hierarquia = hierarquia;
     }
 
-    public String getAkumaNoMi() {
+    public AkumaNoMi getAkumaNoMi() {
         return akumaNoMi;
     }
 
-    public void setAkumaNoMi(String akumaNoMi) {
+    public void setAkumaNoMi(AkumaNoMi akumaNoMi) {
         this.akumaNoMi = akumaNoMi;
     }
 
@@ -76,5 +79,13 @@ public class Marinha  {
 
     public void setHaki(String haki) {
         this.haki = haki;
+    }
+
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
     }
 }

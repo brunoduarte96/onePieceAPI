@@ -22,16 +22,19 @@ public class Tripulacao {
     @Column(name = "navio")
     private String navio;
 
+    private String imgUrl;
+
 
     public Tripulacao() {
     }
 
-    public Tripulacao(Long id, String nome, List<Pirata> piratas, String capitao, String navio) {
+    public Tripulacao(Long id, String nome, List<Pirata> piratas, String capitao, String navio, String imgUrl) {
         this.id = id;
         this.nome = nome;
         this.piratas = piratas;
         this.capitao = capitao;
         this.navio = navio;
+        this.imgUrl = imgUrl;
     }
 
 
@@ -73,5 +76,13 @@ public class Tripulacao {
 
     public void setNavio(String navio) {
         this.navio = navio;
+    }
+
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
     }
 }

@@ -4,6 +4,7 @@ import com.duarte.onePieceAPI.entities.Pirata;
 import org.springframework.beans.BeanUtils;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 public class PirataDTO {
 
@@ -13,7 +14,10 @@ public class PirataDTO {
     private String tripulacao;
     private BigDecimal recompensa;
     private String akumaNoMi;
+    private List<String> tipoAkumaNoMi;
     private String haki;
+    private String imgUrl;
+
 
     public PirataDTO() {
     }
@@ -22,6 +26,10 @@ public class PirataDTO {
         BeanUtils.copyProperties(pirata, this);
         if (pirata.getTripulacao() != null) {
             this.tripulacao = pirata.getTripulacao().getNome();
+        }
+        if(pirata.getAkumaNoMi() != null){
+            this.akumaNoMi = pirata.getAkumaNoMi().getNome();
+            this.tipoAkumaNoMi = pirata.getAkumaNoMi().getTipo();
         }
     }
 
@@ -79,5 +87,21 @@ public class PirataDTO {
 
     public void setHaki(String haki) {
         this.haki = haki;
+    }
+
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
+    }
+
+    public List<String> getTipoAkumaNoMi() {
+        return tipoAkumaNoMi;
+    }
+
+    public void setTipoAkumaNoMi(List<String> tipoAkumaNoMi) {
+        this.tipoAkumaNoMi = tipoAkumaNoMi;
     }
 }

@@ -11,28 +11,23 @@ public class Pirata {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     @Column(name = "nome")
     private String nome;
-
     @Column(name = "estilo_de_luta")
     private String estiloLuta;
-
     @ManyToOne
     @JoinColumn(name = "tripulacao_id")
     private Tripulacao tripulacao;
-
     private BigDecimal recompensa;
-
-    @Column(name = "Akuma_no_mi")
-    private String akumaNoMi;
-
+    @ManyToOne
+    private AkumaNoMi akumaNoMi;
     private String haki;
+    private String imgUrl;
 
     public Pirata() {
     }
 
-    public Pirata(Long id, String nome, String estiloLuta, Tripulacao tripulacao, BigDecimal recompensa, String akumaNoMi, String haki) {
+    public Pirata(Long id, String nome, String estiloLuta, Tripulacao tripulacao, BigDecimal recompensa, AkumaNoMi akumaNoMi, String haki, String imgUrl) {
         this.id = id;
         this.nome = nome;
         this.estiloLuta = estiloLuta;
@@ -40,6 +35,7 @@ public class Pirata {
         this.recompensa = recompensa;
         this.akumaNoMi = akumaNoMi;
         this.haki = haki;
+        this.imgUrl = imgUrl;
     }
 
     public Long getId() {
@@ -82,11 +78,11 @@ public class Pirata {
         this.recompensa = recompensa;
     }
 
-    public String getAkumaNoMi() {
+    public AkumaNoMi getAkumaNoMi() {
         return akumaNoMi;
     }
 
-    public void setAkumaNoMi(String akumaNoMi) {
+    public void setAkumaNoMi(AkumaNoMi akumaNoMi) {
         this.akumaNoMi = akumaNoMi;
     }
 
@@ -96,5 +92,13 @@ public class Pirata {
 
     public void setHaki(String haki) {
         this.haki = haki;
+    }
+
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
     }
 }
