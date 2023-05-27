@@ -23,6 +23,7 @@ public class PersonagemController {
         return personagemService.listarPersonagens();
     }
 
+    @Transactional
     @GetMapping("/{nome}")
     public List<Object> buscarPersonagemPorNome(@PathVariable("nome") String nome) {
         return personagemService.buscarPersonagensPorNome(nome);

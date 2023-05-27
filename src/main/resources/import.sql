@@ -1,5 +1,0 @@
-INSERT INTO tripulacao (capitao, img_url, navio, nome)VALUES('Monkey D. Luffy', 'https://exemplo.com/img/9', 'Thousand Sunny', 'Piratas do Chapéu de Palha');
-INSERT INTO akuma_no_mi (img_url, nome) VALUES  ('https://exemplo.com/img/1', 'Gomu Gomu no Mi'),('https://exemplo.com/img/2', 'Magu Magu no Mi'),('https://exemplo.com/img/3', 'Hie Hie no Mi'),('https://exemplo.com/img/4', 'Yami Yami no Mi');
-INSERT INTO akuma_no_mi_tipo (akuma_no_mi_id, tipo) VALUES(1, 'Paramecia'),(2, 'Logia'),(3, 'Logia'),(4, 'Paramecia');
-INSERT INTO marinha (akuma_no_mi_id, estilo_de_luta, haki, hierarquia, img_url, nome) VALUES(2, 'Rokushiki', 'Observação, Armamento', 'Almirante da Frota', 'https://exemplo.com/img/5', 'Sakazuki'),(3, 'Rokushiki', 'Observação', 'Almirante', 'https://exemplo.com/img/6', 'Kuzan');
-INSERT INTO piratas (recompensa, akuma_no_mi_id, tripulacao_id, estilo_de_luta, haki, img_url, nome) VALUES(1500000000, 1, 1, 'Gomu Gomu no Mi', 'Observação, Armamento', 'https://exemplo.com/img/7', 'Monkey D. Luffy'),(320000000, NULL, 1, 'Santoryu', 'Observação, Armamento', 'https://exemplo.com/img/8', 'Roronoa Zoro');

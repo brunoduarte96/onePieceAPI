@@ -1,5 +1,6 @@
 package com.duarte.onePieceAPI.dto;
 
+import com.duarte.onePieceAPI.entities.Imagem;
 import com.duarte.onePieceAPI.entities.Pirata;
 import org.springframework.beans.BeanUtils;
 
@@ -16,7 +17,7 @@ public class PirataDTO {
     private String akumaNoMi;
     private List<String> tipoAkumaNoMi;
     private String haki;
-    private String imgUrl;
+    private List<Imagem> imagens;
 
 
     public PirataDTO() {
@@ -27,10 +28,11 @@ public class PirataDTO {
         if (pirata.getTripulacao() != null) {
             this.tripulacao = pirata.getTripulacao().getNome();
         }
-        if(pirata.getAkumaNoMi() != null){
+        if (pirata.getAkumaNoMi() != null) {
             this.akumaNoMi = pirata.getAkumaNoMi().getNome();
             this.tipoAkumaNoMi = pirata.getAkumaNoMi().getTipo();
         }
+        this.imagens = pirata.getImagens();
     }
 
     public Long getId() {
@@ -89,12 +91,12 @@ public class PirataDTO {
         this.haki = haki;
     }
 
-    public String getImgUrl() {
-        return imgUrl;
+    public List<Imagem> getImagens() {
+        return imagens;
     }
 
-    public void setImgUrl(String imgUrl) {
-        this.imgUrl = imgUrl;
+    public void setImagens(List<Imagem> imagens) {
+        this.imagens = imagens;
     }
 
     public List<String> getTipoAkumaNoMi() {

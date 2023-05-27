@@ -3,6 +3,7 @@ package com.duarte.onePieceAPI.entities;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
 @Table(name = "Piratas")
@@ -22,12 +23,14 @@ public class Pirata {
     @ManyToOne
     private AkumaNoMi akumaNoMi;
     private String haki;
-    private String imgUrl;
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name = "pirata_imagem", joinColumns = @JoinColumn(name = "pirata_id"))
+    private List<Imagem> imagens;
 
     public Pirata() {
     }
 
-    public Pirata(Long id, String nome, String estiloLuta, Tripulacao tripulacao, BigDecimal recompensa, AkumaNoMi akumaNoMi, String haki, String imgUrl) {
+    public Pirata(Long id, String nome, String estiloLuta, Tripulacao tripulacao, BigDecimal recompensa, AkumaNoMi akumaNoMi, String haki, List<Imagem> imagens) {
         this.id = id;
         this.nome = nome;
         this.estiloLuta = estiloLuta;
@@ -35,7 +38,7 @@ public class Pirata {
         this.recompensa = recompensa;
         this.akumaNoMi = akumaNoMi;
         this.haki = haki;
-        this.imgUrl = imgUrl;
+        this.imagens = imagens;
     }
 
     public Long getId() {
@@ -94,11 +97,11 @@ public class Pirata {
         this.haki = haki;
     }
 
-    public String getImgUrl() {
-        return imgUrl;
+    public List<Imagem> getImagens() {
+        return imagens;
     }
 
-    public void setImgUrl(String imgUrl) {
-        this.imgUrl = imgUrl;
+    public void setImagens(List<Imagem> imagens) {
+        this.imagens = imagens;
     }
 }

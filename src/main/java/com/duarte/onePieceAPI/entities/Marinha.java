@@ -2,8 +2,10 @@ package com.duarte.onePieceAPI.entities;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
-public class Marinha  {
+public class Marinha {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -12,25 +14,29 @@ public class Marinha  {
     @Column(name = "estilo_de_luta")
     private String estiloLuta;
 
-    private String hierarquia;
+    @ManyToOne
+    @JoinColumn(name = "hierarquia_id")
+    private Hierarquia hierarquia;
     @ManyToOne
     private AkumaNoMi akumaNoMi;
 
     private String haki;
 
-    private String imgUrl;
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name = "marinha_imagem", joinColumns = @JoinColumn(name = "marinha_id"))
+    private List<Imagem> imagens;
 
     public Marinha() {
     }
 
-    public Marinha(Long id, String nome, String estiloLuta, String hierarquia, AkumaNoMi akumaNoMi, String haki, String imgUrl) {
+    public Marinha(Long id, String nome, String estiloLuta, Hierarquia hierarquia, AkumaNoMi akumaNoMi, String haki, List<Imagem> imagens) {
         this.id = id;
         this.nome = nome;
         this.estiloLuta = estiloLuta;
         this.hierarquia = hierarquia;
         this.akumaNoMi = akumaNoMi;
         this.haki = haki;
-        this.imgUrl = imgUrl;
+        this.imagens = imagens;
     }
 
     public Long getId() {
@@ -57,11 +63,11 @@ public class Marinha  {
         this.estiloLuta = estiloLuta;
     }
 
-    public String getHierarquia() {
+    public Hierarquia getHierarquia() {
         return hierarquia;
     }
 
-    public void setHierarquia(String hierarquia) {
+    public void setHierarquia(Hierarquia hierarquia) {
         this.hierarquia = hierarquia;
     }
 
@@ -81,11 +87,11 @@ public class Marinha  {
         this.haki = haki;
     }
 
-    public String getImgUrl() {
-        return imgUrl;
+    public List<Imagem> getImagens() {
+        return imagens;
     }
 
-    public void setImgUrl(String imgUrl) {
-        this.imgUrl = imgUrl;
+    public void setImagens(List<Imagem> imagens) {
+        this.imagens = imagens;
     }
 }

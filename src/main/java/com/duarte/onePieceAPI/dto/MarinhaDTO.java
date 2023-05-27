@@ -1,5 +1,6 @@
 package com.duarte.onePieceAPI.dto;
 
+import com.duarte.onePieceAPI.entities.Imagem;
 import com.duarte.onePieceAPI.entities.Marinha;
 import org.springframework.beans.BeanUtils;
 
@@ -14,7 +15,7 @@ public class MarinhaDTO {
     private String akumaNoMi;
     private List<String> tipoAkumaNoMi;
     private String haki;
-    private String imgUrl;
+    private List<Imagem> imagens;
 
     public MarinhaDTO() {
 
@@ -22,10 +23,14 @@ public class MarinhaDTO {
 
     public MarinhaDTO(Marinha marinha) {
         BeanUtils.copyProperties(marinha, this);
-        if(marinha.getAkumaNoMi()!=null){
+        if (marinha.getAkumaNoMi() != null) {
             this.akumaNoMi = marinha.getAkumaNoMi().getNome();
             this.tipoAkumaNoMi = marinha.getAkumaNoMi().getTipo();
         }
+        if (marinha.getHierarquia() != null) {
+            this.hierarquia = marinha.getHierarquia().getCargo();
+        }
+        this.imagens = marinha.getImagens();
     }
 
     public Long getId() {
@@ -76,12 +81,12 @@ public class MarinhaDTO {
         this.haki = haki;
     }
 
-    public String getImgUrl() {
-        return imgUrl;
+    public List<Imagem> getImagens() {
+        return imagens;
     }
 
-    public void setImgUrl(String imgUrl) {
-        this.imgUrl = imgUrl;
+    public void setImagens(List<Imagem> imagens) {
+        this.imagens = imagens;
     }
 
     public List<String> getTipoAkumaNoMi() {
