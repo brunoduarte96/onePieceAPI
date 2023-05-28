@@ -10,7 +10,7 @@ import java.util.List;
 
 @Repository
 public interface PirataRepository extends JpaRepository<Pirata, Long> {
-    @EntityGraph(attributePaths = "tripulacao")
+    @EntityGraph(attributePaths = { "imagens", "tripulacao" })
     List<Pirata> findByNomeContainingIgnoreCase(String nome);
 
 }

@@ -3,11 +3,12 @@ package com.duarte.onePieceAPI.dto;
 import com.duarte.onePieceAPI.entities.Imagem;
 import com.duarte.onePieceAPI.entities.Pirata;
 import org.springframework.beans.BeanUtils;
+import org.springframework.hateoas.RepresentationModel;
 
 import java.math.BigDecimal;
 import java.util.List;
 
-public class PirataDTO {
+public class PirataDTO extends RepresentationModel<PirataDTO> {
 
     private Long id;
     private String nome;

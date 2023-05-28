@@ -9,6 +9,6 @@ import java.util.List;
 
 @Repository
 public interface MarinhaRepository extends JpaRepository<Marinha, Long> {
-    @EntityGraph(attributePaths = "hierarquia")
+    @EntityGraph(attributePaths = {"imagens", "hierarquia"})
     List<Marinha> findByNomeContainingIgnoreCase(String nome);
 }

@@ -3,10 +3,11 @@ package com.duarte.onePieceAPI.dto;
 import com.duarte.onePieceAPI.entities.Imagem;
 import com.duarte.onePieceAPI.entities.Marinha;
 import org.springframework.beans.BeanUtils;
+import org.springframework.hateoas.RepresentationModel;
 
 import java.util.List;
 
-public class MarinhaDTO {
+public class MarinhaDTO extends RepresentationModel<MarinhaDTO> {
 
     private Long id;
     private String nome;

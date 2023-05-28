@@ -1,7 +1,12 @@
 package com.duarte.onePieceAPI.controller;
 
+import com.duarte.onePieceAPI.dto.MarinhaDTO;
+import com.duarte.onePieceAPI.dto.PirataDTO;
 import com.duarte.onePieceAPI.service.PersonagemService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.hateoas.EntityModel;
+import org.springframework.hateoas.Link;
+import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -9,9 +14,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.stream.Collectors;
+
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 @RestController
-@RequestMapping("/personagens")
+@RequestMapping("/api/v1/personagens")
 public class PersonagemController {
 
     @Autowired
@@ -19,15 +27,36 @@ public class PersonagemController {
 
     @Transactional
     @GetMapping
-    public List<Object> listarPersonagens() {
-        return personagemService.listarPersonagens();
+    public List<EntityModel<Object>> listarPersonagens() {
+        List<Object> personagens = personagemService.listarPersonagens();
+
+        return personagens.stream()
+                .map(personagem -> {
+                    String nome ="";
+                    if (personagem instanceof PirataDTO) {
+                        nome = ((PirataDTO) personagem).getNome();
+                    } else if (personagem instanceof MarinhaDTO) {
+                        nome = ((MarinhaDTO) personagem).getNome();
+                    }
+
+
+                    Link buscarPorNomeLink = WebMvcLinkBuilder.linkTo(methodOn(PersonagemController.class).buscarPersonagemPorNome(nome)).withRel("buscarPorNome");
+                    return EntityModel.of(personagem, buscarPorNomeLink);
+                })
+                .collect(Collectors.toList());
     }
 
     @Transactional
     @GetMapping("/{nome}")
-    public List<Object> buscarPersonagemPorNome(@PathVariable("nome") String nome) {
-        return personagemService.buscarPersonagensPorNome(nome);
-    }
+    public List<EntityModel<Object>> buscarPersonagemPorNome(@PathVariable("nome") String nome) {
+        List<Object> personagens = personagemService.buscarPersonagensPorNome(nome);
 
+        return personagens.stream()
+                .map(personagem -> EntityModel.of(personagem,
+                        WebMvcLinkBuilder.linkTo(methodOn(PersonagemController.class).buscarPersonagemPorNome(nome)).withSelfRel()))
+                .collect(Collectors.toList());
+
+
+    }
 
 }
