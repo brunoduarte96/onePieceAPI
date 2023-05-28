@@ -1,5 +1,6 @@
 package com.duarte.onePieceAPI.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -14,6 +15,7 @@ public class Tripulacao {
     private String nome;
 
     @OneToMany(mappedBy = "tripulacao")
+    @JsonIgnore
     private List<Pirata> piratas;
 
     @Column(name = "capitao")

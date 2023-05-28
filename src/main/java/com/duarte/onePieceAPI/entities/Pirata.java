@@ -1,5 +1,8 @@
 package com.duarte.onePieceAPI.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
@@ -17,12 +20,17 @@ public class Pirata {
     @Column(name = "estilo_de_luta")
     private String estiloLuta;
     @ManyToOne
+    @JsonManagedReference
     @JoinColumn(name = "tripulacao_id")
     private Tripulacao tripulacao;
     private BigDecimal recompensa;
-    @ManyToOne
+
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.EAGER)
     private AkumaNoMi akumaNoMi;
     private String haki;
+
+    @JsonBackReference
     @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "pirata_imagem", joinColumns = @JoinColumn(name = "pirata_id"))
     private List<Imagem> imagens;
