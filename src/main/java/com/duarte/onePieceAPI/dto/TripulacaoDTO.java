@@ -4,29 +4,28 @@ import com.duarte.onePieceAPI.entities.Pirata;
 import com.duarte.onePieceAPI.entities.Tripulacao;
 import org.springframework.beans.BeanUtils;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TripulacaoDTO {
 
     private Long id;
     private String nome;
-    private List<Pirata> piratas;
+    private List<String> piratas;
     private String capitao;
     private String navio;
 
     public TripulacaoDTO() {
     }
 
-    public TripulacaoDTO(Long id, String nome, List<Pirata> piratas, String capitao, String navio) {
-        this.id = id;
-        this.nome = nome;
-        this.piratas = piratas;
-        this.capitao = capitao;
-        this.navio = navio;
-    }
-
     public TripulacaoDTO(Tripulacao tripulacao) {
         BeanUtils.copyProperties(tripulacao, this);
+        List<Pirata> piratas = tripulacao.getPiratas();
+        List<String> nomePiratas = new ArrayList<>();
+        for (Pirata pirata : piratas) {
+            nomePiratas.add(pirata.getNome());
+        }
+        this.piratas = nomePiratas;
     }
 
     public Long getId() {
@@ -45,11 +44,11 @@ public class TripulacaoDTO {
         this.nome = nome;
     }
 
-    public List<Pirata> getPiratas() {
+    public List<String> getPiratas() {
         return piratas;
     }
 
-    public void setPiratas(List<Pirata> piratas) {
+    public void setPiratas(List<String> piratas) {
         this.piratas = piratas;
     }
 

@@ -20,17 +20,16 @@ public class Pirata {
     @Column(name = "estilo_de_luta")
     private String estiloLuta;
     @ManyToOne
-    @JsonManagedReference
     @JoinColumn(name = "tripulacao_id")
     private Tripulacao tripulacao;
     private BigDecimal recompensa;
 
-    @JsonIgnore
+
     @ManyToOne(fetch = FetchType.EAGER)
     private AkumaNoMi akumaNoMi;
     private String haki;
 
-    @JsonBackReference
+
     @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "pirata_imagem", joinColumns = @JoinColumn(name = "pirata_id"))
     private List<Imagem> imagens;

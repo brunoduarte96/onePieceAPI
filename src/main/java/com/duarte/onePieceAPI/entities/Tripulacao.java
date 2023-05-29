@@ -15,7 +15,6 @@ public class Tripulacao {
     private String nome;
 
     @OneToMany(mappedBy = "tripulacao")
-    @JsonIgnore
     private List<Pirata> piratas;
 
     @Column(name = "capitao")

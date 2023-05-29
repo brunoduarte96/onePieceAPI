@@ -14,4 +14,6 @@ public interface TripulacaoRepository extends JpaRepository<Tripulacao, Long> {
     @EntityGraph(attributePaths = "piratas")
     List<Tripulacao> findAll();
 
+    List<Tripulacao>findByNomeContainingIgnoreCase(String nome);
+
 }
