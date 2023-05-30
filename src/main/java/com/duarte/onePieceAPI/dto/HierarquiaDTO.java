@@ -4,12 +4,13 @@ import com.duarte.onePieceAPI.entities.Hierarquia;
 import com.duarte.onePieceAPI.entities.Marinha;
 import org.springframework.beans.BeanUtils;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class HierarquiaDTO {
     private Long id;
     private String cargo;
-    private List<Marinha> marinha;
+    private List<String> marinha;
 
     public HierarquiaDTO() {
 
@@ -17,6 +18,13 @@ public class HierarquiaDTO {
 
     public HierarquiaDTO(Hierarquia hierarquia) {
         BeanUtils.copyProperties(hierarquia, this);
+        List<Marinha> marinhas = hierarquia.getMarinha();
+        List<String> cargoMarinha = new ArrayList<>();
+
+        for (Marinha marinha : marinhas) {
+            cargoMarinha.add(marinha.getNome());
+        }
+        this.marinha = cargoMarinha;
     }
 
     public Long getId() {
@@ -35,11 +43,11 @@ public class HierarquiaDTO {
         this.cargo = cargo;
     }
 
-    public List<Marinha> getMarinha() {
+    public List<String> getMarinha() {
         return marinha;
     }
 
-    public void setMarinha(List<Marinha> marinha) {
+    public void setMarinha(List<String> marinha) {
         this.marinha = marinha;
     }
 }
