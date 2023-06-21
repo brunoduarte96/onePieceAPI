@@ -1,7 +1,6 @@
 package com.duarte.onePieceAPI.controller;
 
 import com.duarte.onePieceAPI.dto.HierarquiaDTO;
-import com.duarte.onePieceAPI.entities.Hierarquia;
 import com.duarte.onePieceAPI.service.HierarquiaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.EntityModel;
@@ -44,10 +43,9 @@ public class HierarquiaController {
 
     @Transactional
     @GetMapping("/{cargo}")
-    public List<Object>listarHierarquiaPorNome(@PathVariable("cargo")String cargo){
+    public List<Object> listarHierarquiaPorNome(@PathVariable("cargo") String cargo) {
         return hierarquiaService.buscarHierarquiaPorCargo(cargo);
     }
-
 
 
 }

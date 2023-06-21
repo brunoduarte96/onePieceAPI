@@ -14,7 +14,6 @@ public class Imagem {
     private String impelDown;
     private String marineFord;
     private String ilhaDosTritoes;
-    private String aliancaPirata;
     private String dressrosa;
     private String wholeCake;
     private String wano;
@@ -23,7 +22,7 @@ public class Imagem {
     public Imagem() {
     }
 
-    public Imagem(String eastBlue, String alabasta, String skypiea, String water7, String thrillerBark, String sabaody, String impelDown, String marineFord, String ilhaDosTritoes, String aliancaPirata, String dressrosa, String wholeCake, String wano) {
+    public Imagem(String eastBlue, String alabasta, String skypiea, String water7, String thrillerBark, String sabaody, String impelDown, String marineFord, String ilhaDosTritoes, String dressrosa, String wholeCake, String wano) {
         this.eastBlue = eastBlue;
         this.alabasta = alabasta;
         this.skypiea = skypiea;
@@ -33,7 +32,6 @@ public class Imagem {
         this.impelDown = impelDown;
         this.marineFord = marineFord;
         this.ilhaDosTritoes = ilhaDosTritoes;
-        this.aliancaPirata = aliancaPirata;
         this.dressrosa = dressrosa;
         this.wholeCake = wholeCake;
         this.wano = wano;
@@ -109,14 +107,6 @@ public class Imagem {
 
     public void setIlhaDosTritoes(String ilhaDosTritoes) {
         this.ilhaDosTritoes = ilhaDosTritoes;
-    }
-
-    public String getAliancaPirata() {
-        return aliancaPirata;
-    }
-
-    public void setAliancaPirata(String aliancaPirata) {
-        this.aliancaPirata = aliancaPirata;
     }
 
     public String getDressrosa() {

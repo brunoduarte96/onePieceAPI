@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface AkumaNoMiRepository extends JpaRepository<AkumaNoMi, Long> {
+    AkumaNoMi findByNome(String nome);
 }

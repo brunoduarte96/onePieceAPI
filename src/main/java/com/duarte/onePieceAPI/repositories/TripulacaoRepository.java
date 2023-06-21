@@ -16,4 +16,5 @@ public interface TripulacaoRepository extends JpaRepository<Tripulacao, Long> {
 
     List<Tripulacao>findByNomeContainingIgnoreCase(String nome);
 
+    Tripulacao findByNome(String nome);
 }

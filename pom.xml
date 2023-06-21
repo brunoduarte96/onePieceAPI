@@ -12,7 +12,7 @@
     <artifactId>onePieceAPI</artifactId>
     <version>1.0.0</version>
     <name>onePieceAPI</name>
-    <description>Demo project for Spring Boot</description>
+    <description>API baseado no manga/anime One piece</description>
     <properties>
         <java.version>17</java.version>
     </properties>
@@ -35,6 +35,12 @@
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
             <scope>runtime</scope>
         </dependency>
         <dependency>
