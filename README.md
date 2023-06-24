@@ -9,7 +9,7 @@ Essa API é um projeto pessoal baseado no anime One Piece do autor Eiichiro Oda.
 A API consiste em uma pesquisa de personagens, onde os dados são coletados do banco de dados e são listados as informações sobre os personagens.
 
 ## Métodos
-Requsições para a API:
+Requisições para a API:
 | Método | Descrição |
 |---|---|
 | `GET` | Retorna informações de um ou mais registros. |
@@ -21,7 +21,7 @@ Requsições para a API:
 
 + Request (application/json)
 
-+ Reponse 200 (application/json)
++ Response 200 (application/json)
 
             {
               "id": 1,
@@ -100,7 +100,7 @@ Requsições para a API:
 
 + Request (application/json)
 
-+ Reponse 200 (application/json)
++ Response 200 (application/json)
 
                   {
                                       {
@@ -148,7 +148,7 @@ Requsições para a API:
 
 + Request (application/json)
 
-+ Reponse 200 (application/json)
++ Response 200 (application/json)
 
                     {
                         {
